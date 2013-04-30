@@ -1,4 +1,11 @@
-var plants;
+var plants = new Array();
+for(var y = 0; y < 30; y++){
+	plants[y] = new Array();
+	for(var x = 0; x < 101; x++){
+		plants[y][x] = ".";
+	}
+	plants[y][101] = "";
+}
 
 function skipDay(){
 	updateWorld();
