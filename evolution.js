@@ -35,8 +35,14 @@ function drawWorld(){
 }
 
 function addPlants(){
+
 	var rndX = Math.floor(Math.random() * 100);
 	var rndY = Math.floor(Math.random() * 30);
-		
-	plants[rndY][rndX] = "*";
+	
+	if(plants[rndY][rndX] == "."){
+		plants[rndY][rndX] = "*";
+	}
+	else{
+		addPlants();
+	}
 }
