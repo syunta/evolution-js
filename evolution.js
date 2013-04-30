@@ -2,7 +2,9 @@ var plants;
 
 function skipDay(){}
 
-function updateWorld(){}
+function updateWorld(){
+	addPlants();
+}
 
 function drawWorld(){
 	
