@@ -1,8 +1,8 @@
 var plants;
 
 function skipDay(){
-	drawWorld();
 	updateWorld();
+	drawWorld();
 }
 
 function updateWorld(){
