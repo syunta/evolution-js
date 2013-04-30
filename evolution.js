@@ -3,7 +3,7 @@ var plants = new Array();
 for(var y = 0; y < 30; y++){
 	plants[y] = new Array();
 	for(var x = 0; x < 101; x++){
-		plants[y][x] = "&nbsp;";
+		plants[y][x] = " ";
 	}
 	plants[y][101] = "";
 }
@@ -111,8 +111,8 @@ function drawWorld(){
 
 	for(var y = 0; y < 30; y++){
 		ary[y] = new Array();
-		for(var x = 0; x < 101; x++){
-			ary[y][x] = "&nbsp;";
+		for(var x = 0; x < 100; x++){
+			ary[y][x] = " ";
 			
 			if(plants[y][x] == "*"){
 				ary[y][x] = "*";
@@ -124,15 +124,14 @@ function drawWorld(){
 			
 			world += ary[y][x];
 		}
-		ary[y][101] = "<br>";
-		world += ary[y][101];
+		ary[y][100] = "\n";
+		world += ary[y][100];
 	}
-	document.getElementById("world").innerHTML = world;
+	document.getElementById("world").innerText = world;
 }
 
 /* 植物の関数 */
 function addPlants(){
-
 	var rndX = Math.floor(Math.random() * 100);
 	var rndY = Math.floor(Math.random() * 30);
 	plants[rndY][rndX] = "*";
