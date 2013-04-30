@@ -10,15 +10,13 @@ for(var y = 0; y < 30; y++){
 
 var animals = new Array();
 /* グローバル変数animalsを初期化 */
-for(var y = 0; y < 30; y++){
-	animals[y] = new Array();
-	for(var x = 0; x < 101; x++){
-		animals[y][x] = ".";
-	}
-	animals[y][101] = "";
-}
-animals[15][50] = "3";
+animals[0] = new createAnimals(50, 15, 3);
 
+function createAnimals(x, y, direction){
+	this.x = x;
+	this.y = y;
+	this.direction = direction;
+}
 
 function skipDay(){
 	updateWorld();
