@@ -25,6 +25,7 @@ function drawWorld(){
 		ary[y] = new Array();
 		for(var x = 0; x < 101; x++){
 			ary[y][x] = ".";
+			ary[y][x] = plants[y][x];
 			world += ary[y][x];
 		}
 		ary[y][101] = "<br>";
