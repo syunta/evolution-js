@@ -135,13 +135,7 @@ function addPlants(){
 
 	var rndX = Math.floor(Math.random() * 100);
 	var rndY = Math.floor(Math.random() * 30);
-	
-	if(plants[rndY][rndX] == "&nbsp;"){
-		plants[rndY][rndX] = "*";
-	}
-	else{
-		addPlants();
-	}
+	plants[rndY][rndX] = "*";
 	
 	rndX = Math.floor(Math.random() * 10);
 	rndY = Math.floor(Math.random() * 10);	
