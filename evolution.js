@@ -9,12 +9,16 @@ function updateWorld(){
 function drawWorld(){
 	
 	var world = "";
+	var ary = new Array();
 
 	for(var i = 0; i < 30; i++){
-		for(var j = 0; j < 100; j++){
-			world += ".";
+		ary[i] = new Array();
+		for(var j = 0; j < 101; j++){
+			ary[i][j] = ".";
+			world += ary[i][j];
 		}
-		world += "<br>";
+		ary[i][101] = "<br>";
+		world += ary[i][101];
 	}
 	document.getElementById("world").innerHTML = world;
 }
