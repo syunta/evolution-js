@@ -1,1 +1,3 @@
 function skipDay(){}
+
+function updateWorld(){}
