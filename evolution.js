@@ -16,3 +16,7 @@ function drawWorld(){
 	}
 	document.getElementById("world").innerHTML = world;
 }
+
+function addPlants(){
+	
+}
