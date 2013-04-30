@@ -17,7 +17,8 @@ for(var y = 0; y < 30; y++){
 	}
 	animals[y][101] = "";
 }
-animals[15][50] = "M";
+animals[15][50] = "3";
+
 
 function skipDay(){
 	updateWorld();
@@ -42,7 +43,7 @@ function drawWorld(){
 				ary[y][x] = "*";
 			}
 			
-			if(animals[y][x] == "M"){
+			if(animals[y][x] != "." && animals[y][x] != ""){
 				ary[y][x] = "M";
 			}
 			
