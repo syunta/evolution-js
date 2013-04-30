@@ -10,7 +10,7 @@ for(var y = 0; y < 30; y++){
 
 var animals = new Array();
 /* グローバル変数animalsを初期化 */
-animals[0] = new createAnimals(50, 15, 3);
+animals[0] = new createAnimals(50, 15, 0);
 
 /* 動物の関数 */
 function createAnimals(x, y, direction){
@@ -23,28 +23,28 @@ function move(animals){
 	switch(animals[0].direction){
 		case 0:
 			animals[0].x -= 1;
-			animals[0].y += 1;
+			animals[0].y -= 1;
 			break;
 		case 1:
-			animals[0].y += 1;
+			animals[0].y -= 1;
 			break;
 		case 2:
 			animals[0].x += 1;
-			animals[0].y += 1;
+			animals[0].y -= 1;
 			break;
 		case 3:
 			animals[0].x += 1;
 			break;
 		case 4:
 			animals[0].x += 1;
-			animals[0].y -= 1;
+			animals[0].y += 1;
 			break;
 		case 5:
-			animals[0].y -= 1;
+			animals[0].y += 1;
 			break;
 		case 6:
 			animals[0].x -= 1;
-			animals[0].y -= 1;
+			animals[0].y += 1;
 			break;
 		case 7:
 			animals[0].x -= 1;
