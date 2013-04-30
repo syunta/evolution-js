@@ -10,7 +10,7 @@ for(var y = 0; y < 30; y++){
 
 var animals = new Array();
 /* グローバル変数animalsを初期化 */
-animals[0] = new createAnimals(50, 15, 0);
+animals[0] = new createAnimals(50, 15, 3);
 
 /* 動物の関数 */
 function createAnimals(x, y, direction){
@@ -22,32 +22,72 @@ function createAnimals(x, y, direction){
 function move(animals){
 	switch(animals[0].direction){
 		case 0:
-			animals[0].x -= 1;
-			animals[0].y -= 1;
+			if(animals[0].x == 0){
+				animals[0].x = 99;
+			}else if(animals[0].y == 0){
+				animals[0].y = 29;
+			}else{
+				animals[0].x -= 1;
+				animals[0].y -= 1;
+			}
 			break;
 		case 1:
-			animals[0].y -= 1;
+			if(animals[0].y == 0){
+				animals[0].y = 29;
+			}else{
+				animals[0].y -= 1;
+			}
 			break;
 		case 2:
-			animals[0].x += 1;
-			animals[0].y -= 1;
+			if(animals[0].x == 99){
+				animals[0].x = 0;
+			}else if(animals[0].y == 0){
+				animals[0].y = 29;
+			}else{
+				animals[0].x += 1;
+				animals[0].y -= 1;
+			}
 			break;
 		case 3:
-			animals[0].x += 1;
+			if(animals[0].x == 99){
+				animals[0].x = 0;
+			}else{
+				animals[0].x += 1;
+			}
 			break;
 		case 4:
-			animals[0].x += 1;
-			animals[0].y += 1;
+			if(animals[0].x == 0){
+				animals[0].x = 99;
+			}else if(animals[0].y == 0){
+				animals[0].y = 29;
+			}else{
+				animals[0].x += 1;
+				animals[0].y += 1;
+			}
 			break;
 		case 5:
-			animals[0].y += 1;
+			if(animals[0].y == 29){
+				animals[0].y = 0;
+			}else{
+				animals[0].y += 1;
+			}
 			break;
 		case 6:
-			animals[0].x -= 1;
-			animals[0].y += 1;
+			if(animals[0].x == 0){
+				animals[0].x = 99;
+			}else if(animals[0].y == 29){
+				animals[0].y = 0;
+			}else{
+				animals[0].x -= 1;
+				animals[0].y += 1;
+			}
 			break;
 		case 7:
-			animals[0].x -= 1;
+			if(animals[0].x == 0){
+				animals[0].x = 99;
+			}else{
+				animals[0].x -= 1;
+			}
 			break;
 	}	
 }
