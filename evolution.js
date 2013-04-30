@@ -11,18 +11,18 @@ function drawWorld(){
 	var world = "";
 	var ary = new Array();
 
-	for(var i = 0; i < 30; i++){
-		ary[i] = new Array();
-		for(var j = 0; j < 101; j++){
-			ary[i][j] = ".";
-			world += ary[i][j];
+	for(var y = 0; y < 30; y++){
+		ary[y] = new Array();
+		for(var x = 0; x < 101; x++){
+			ary[y][x] = ".";
+			world += ary[y][x];
 		}
-		ary[i][101] = "<br>";
-		world += ary[i][101];
+		ary[y][101] = "<br>";
+		world += ary[y][101];
 	}
 	document.getElementById("world").innerHTML = world;
 }
 
 function addPlants(){
-	
+
 }
