@@ -1,3 +1,5 @@
+var plants;
+
 function skipDay(){}
 
 function updateWorld(){}
@@ -12,7 +14,5 @@ function drawWorld(){
 		}
 		world += "<br>";
 	}
-	
 	document.getElementById("world").innerHTML = world;
-
 }
