@@ -12,12 +12,47 @@ var animals = new Array();
 /* グローバル変数animalsを初期化 */
 animals[0] = new createAnimals(50, 15, 3);
 
+/* 動物の関数 */
 function createAnimals(x, y, direction){
 	this.x = x;
 	this.y = y;
 	this.direction = direction;
 }
 
+function move(animals){
+	switch(animals[0].direction){
+		case 0:
+			animals[0].x -= 1;
+			animals[0].y += 1;
+			break;
+		case 1:
+			animals[0].y += 1;
+			break;
+		case 2:
+			animals[0].x += 1;
+			animals[0].y += 1;
+			break;
+		case 3:
+			animals[0].x += 1;
+			break;
+		case 4:
+			animals[0].x += 1;
+			animals[0].y -= 1;
+			break;
+		case 5:
+			animals[0].y -= 1;
+			break;
+		case 6:
+			animals[0].x -= 1;
+			animals[0].y -= 1;
+			break;
+		case 7:
+			animals[0].x -= 1;
+			break;
+	}	
+}
+
+/* シミュレーションの関数 */
 function skipDay(){
 	updateWorld();
 	drawWorld();
@@ -25,8 +60,10 @@ function skipDay(){
 
 function updateWorld(){
 	addPlants();
+	move(animals);
 }
 
+/* 世界の関数 */
 function drawWorld(){
 	
 	var world = "";
@@ -53,6 +90,7 @@ function drawWorld(){
 	document.getElementById("world").innerHTML = world;
 }
 
+/* 植物の関数 */
 function addPlants(){
 
 	var rndX = Math.floor(Math.random() * 100);
