@@ -1,4 +1,5 @@
 var plants = new Array();
+/* グローバル変数plantsを初期化 */
 for(var y = 0; y < 30; y++){
 	plants[y] = new Array();
 	for(var x = 0; x < 101; x++){
@@ -6,6 +7,17 @@ for(var y = 0; y < 30; y++){
 	}
 	plants[y][101] = "";
 }
+
+var animals = new Array();
+/* グローバル変数animalsを初期化 */
+for(var y = 0; y < 30; y++){
+	animals[y] = new Array();
+	for(var x = 0; x < 101; x++){
+		animals[y][x] = ".";
+	}
+	animals[y][101] = "";
+}
+animals[15][50] = "M";
 
 function skipDay(){
 	updateWorld();
