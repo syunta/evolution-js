@@ -3,7 +3,7 @@ var plants = new Array();
 for(var y = 0; y < 30; y++){
 	plants[y] = new Array();
 	for(var x = 0; x < 101; x++){
-		plants[y][x] = ".";
+		plants[y][x] = "&nbsp;";
 	}
 	plants[y][101] = "";
 }
@@ -72,7 +72,7 @@ function drawWorld(){
 	for(var y = 0; y < 30; y++){
 		ary[y] = new Array();
 		for(var x = 0; x < 101; x++){
-			ary[y][x] = ".";
+			ary[y][x] = "&nbsp;";
 			
 			if(plants[y][x] == "*"){
 				ary[y][x] = "*";
@@ -96,7 +96,7 @@ function addPlants(){
 	var rndX = Math.floor(Math.random() * 100);
 	var rndY = Math.floor(Math.random() * 30);
 	
-	if(plants[rndY][rndX] == "."){
+	if(plants[rndY][rndX] == "&nbsp;"){
 		plants[rndY][rndX] = "*";
 	}
 	else{
