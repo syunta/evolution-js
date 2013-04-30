@@ -41,7 +41,7 @@ function drawWorld(){
 				ary[y][x] = "*";
 			}
 			
-			if(animals[y][x] != "." && animals[y][x] != ""){
+			if(animals[0].x == x && animals[0].y == y){
 				ary[y][x] = "M";
 			}
 			
