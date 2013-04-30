@@ -45,4 +45,8 @@ function addPlants(){
 	else{
 		addPlants();
 	}
+	
+	rndX = Math.floor(Math.random() * 10);
+	rndY = Math.floor(Math.random() * 10);	
+	plants[rndY + 10][rndX + 45] = "*";
 }
