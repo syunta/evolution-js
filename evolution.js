@@ -125,10 +125,10 @@ function skipDay(){
 }
 
 function updateWorld(){
-	addPlants();
 	turn(animal);
 	move(animal);
 	eat(animal);
+	addPlants();
 	test();/* テスト用 */
 }
 
