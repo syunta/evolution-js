@@ -2,10 +2,20 @@ var plants = new Array();
 /* グローバル変数plantsを初期化 */
 for(var y = 0; y < 30; y++){
 	plants[y] = new Array();
-	for(var x = 0; x < 101; x++){
-		plants[y][x] = " ";
+	for(var x = 0; x < 100; x++){
+		plants[y][x] = false;
 	}
-	plants[y][101] = "";
+}
+
+/* 植物の関数 */
+function addPlants(){
+	var rndX = Math.floor(Math.random() * 100);
+	var rndY = Math.floor(Math.random() * 30);
+	plants[rndY][rndX] = true;
+	
+	rndX = Math.floor(Math.random() * 10);
+	rndY = Math.floor(Math.random() * 10);	
+	plants[rndY + 10][rndX + 45] = true;
 }
 
 var animals = new Array();
@@ -114,7 +124,7 @@ function drawWorld(){
 		for(var x = 0; x < 100; x++){
 			ary[y][x] = " ";
 			
-			if(plants[y][x] == "*"){
+			if(plants[y][x] == true){
 				ary[y][x] = "*";
 			}
 			
@@ -128,15 +138,4 @@ function drawWorld(){
 		world += ary[y][100];
 	}
 	document.getElementById("world").innerText = world;
-}
-
-/* 植物の関数 */
-function addPlants(){
-	var rndX = Math.floor(Math.random() * 100);
-	var rndY = Math.floor(Math.random() * 30);
-	plants[rndY][rndX] = "*";
-	
-	rndX = Math.floor(Math.random() * 10);
-	rndY = Math.floor(Math.random() * 10);	
-	plants[rndY + 10][rndX + 45] = "*";
 }
