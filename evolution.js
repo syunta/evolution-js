@@ -22,16 +22,12 @@ var animals = new Array();
 animals[0] = new createAnimals(50, 15, 3);
 
 /* 動物の関数 */
-
-//// Animalクラス //////////////////////
-function Animal(x, y, direction){
+function createAnimals(x, y, direction){
 	this.x = x;
 	this.y = y;
 	this.direction = direction;
 }
-////////////////////////////////////////
-
-function move(animal){
+function move(animals){
 	switch(animals[0].direction){
 		case 0:
 			if(animals[0].x == 0){
@@ -117,7 +113,7 @@ function updateWorld(){
 
 /* 世界の関数 */
 function drawWorld(){
-	
+
 	var world = "";
 	var ary = new Array();
 
@@ -125,15 +121,15 @@ function drawWorld(){
 		ary[y] = new Array();
 		for(var x = 0; x < 100; x++){
 			ary[y][x] = " ";
-			
+
 			if(plants[y][x] == true){
 				ary[y][x] = "*";
 			}
-			
+
 			if(animals[0].x == x && animals[0].y == y){
 				ary[y][x] = "M";
 			}
-			
+
 			world += ary[y][x];
 		}
 		ary[y][100] = "\n";
