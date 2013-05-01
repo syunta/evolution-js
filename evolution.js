@@ -54,8 +54,13 @@ function Animal(x, y, direction){
 }
 ////////////////////////////////
 
-eat(animal){
+function eat(animal){
+	var x = animal.x;
+	var y = animal.y;
 	
+	if(plants[y][x] == true){
+		plants[y][x] = false;
+	}
 }
 
 function turn(animal){
