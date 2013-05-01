@@ -29,7 +29,7 @@ function addPlants(){
 /* 動物の関数 */
 var animals = new Array();
 /* グローバル変数animalsを初期化 */
-animal = new Animal(50, 15, 3);
+animal = new Animal(50, 15, createRnd(8));
 
 //////// Animalクラス //////////
 function Animal(x, y, direction){
