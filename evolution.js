@@ -4,6 +4,8 @@ function test(){
 	for(var i = 0; i < 8; i++){
 		test += " " + animal.genom[i].toString();
 	}
+	
+	test += ":  direction:" + animal.direction.toString()
 	document.getElementById("test").innerText = test;
 }
 
@@ -37,19 +39,42 @@ function Animal(x, y, direction){
 	this.y = y;
 	this.direction = direction;
 	
-	this.genom = new Array();
-	for(var i = 0; i < 8; i++){
+	this.genom = new Array(8);
+	this.genom[0] = 1;
+	this.genom[1] = 10;
+	this.genom[2] = 1;
+	this.genom[3] = 1;
+	this.genom[4] = 1;
+	this.genom[5] = 1;
+	this.genom[6] = 1;
+	this.genom[7] = 1;
+/*	for(var i = 0; i < this.genom.length; i++){
 		this.genom[i] = (createRnd(10) + 1);
-	}
+	}*/
 }
 ////////////////////////////////
+
+function turn(animal){
+	var denominator = "";
+	
+	for(var i = 0; i < animal.genom.length; i++){
+		for(var j = 0; j < animal.genom[i]; j++){
+			denominator += i;
+		}
+	}
+	var rndDirection = denominator.charAt(createRnd(denominator.length));
+	animal.direction = parseInt(rndDirection);
+	
+	var turn = "";
+	turn += rndDirection + "  " + denominator.length + "  "+denominator;
+	document.getElementById("turn").innerText = turn;
+}
 
 function move(animal){
 	function animalMove(x,y){
 		animal.x += x;
 		animal.y += y;
 	}
-
 	switch(animal.direction){
 		case 0:
 			animalMove(-1,-1)
@@ -97,6 +122,7 @@ function skipDay(){
 
 function updateWorld(){
 	addPlants();
+	turn(animal);
 	move(animal);
 	test();/* テスト用 */
 }
