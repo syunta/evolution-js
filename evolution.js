@@ -1,6 +1,9 @@
 /* テスト用 */
 function test(){
-	var test = animal.x.toString();
+	var test = "";
+	for(var i = 0; i < 8; i++){
+		test += " " + animal.genom[i].toString();
+	}
 	document.getElementById("test").innerText = test;
 }
 
@@ -33,6 +36,11 @@ function Animal(x, y, direction){
 	this.x = x;
 	this.y = y;
 	this.direction = direction;
+	
+	this.genom = new Array();
+	for(var i = 0; i < 8; i++){
+		this.genom[i] = (createRnd(10) + 1);
+	}
 }
 ////////////////////////////////
 
@@ -41,6 +49,7 @@ function move(animal){
 		animal.x += x;
 		animal.y += y;
 	}
+
 	switch(animal.direction){
 		case 0:
 			animalMove(-1,-1)
