@@ -1,7 +1,14 @@
+/* テスト用 */
+function test(){
+	var test = animal.x.toString();
+	document.getElementById("test").innerText = test;
+}
+
 function createRnd(a){
 	return Math.floor(Math.random() * a)
 }
 
+/* 植物の関数 */
 var plants = new Array();
 /* グローバル変数plantsを初期化 */
 for(var y = 0; y < 30; y++){
@@ -11,18 +18,17 @@ for(var y = 0; y < 30; y++){
 	}
 }
 
-/* 植物の関数 */
 function addPlants(){
 	plants[createRnd(30)][createRnd(100)] = true;
 	plants[createRnd(10) + 10][createRnd(10) + 45] = true;
 }
 
+/* 動物の関数 */
 var animals = new Array();
 /* グローバル変数animalsを初期化 */
 animal = new Animal(50, 15, 3);
 
 //////// Animalクラス //////////
-/* 動物の関数 */
 function Animal(x, y, direction){
 	this.x = x;
 	this.y = y;
@@ -83,6 +89,7 @@ function skipDay(){
 function updateWorld(){
 	addPlants();
 	move(animal);
+	test();/* テスト用 */
 }
 
 /* 世界の関数 */
