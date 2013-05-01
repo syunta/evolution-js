@@ -22,12 +22,16 @@ var animals = new Array();
 animals[0] = new createAnimals(50, 15, 3);
 
 /* 動物の関数 */
-function createAnimals(x, y, direction){
+
+//// Animalクラス //////////////////////
+function Animal(x, y, direction){
 	this.x = x;
 	this.y = y;
 	this.direction = direction;
 }
-function move(animals){
+////////////////////////////////////////
+
+function move(animal){
 	switch(animals[0].direction){
 		case 0:
 			if(animals[0].x == 0){
