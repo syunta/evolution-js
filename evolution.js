@@ -19,7 +19,7 @@ function addPlants(){
 
 var animals = new Array();
 /* グローバル変数animalsを初期化 */
-animals[0] = new Animal(50, 15, 3);
+animal = new Animal(50, 15, 3);
 
 //////// Animalクラス //////////
 /* 動物の関数 */
@@ -30,74 +30,74 @@ function Animal(x, y, direction){
 }
 ////////////////////////////////
 
-function move(animals){
-	switch(animals[0].direction){
+function move(animal){
+	switch(animal.direction){
 		case 0:
-			if(animals[0].x == 0){
-				animals[0].x = 99;
-			}else if(animals[0].y == 0){
-				animals[0].y = 29;
+			if(animal.x == 0){
+				animal.x = 99;
+			}else if(animal[0].y == 0){
+				animal.y = 29;
 			}else{
-				animals[0].x -= 1;
-				animals[0].y -= 1;
+				animal.x -= 1;
+				animal.y -= 1;
 			}
 			break;
 		case 1:
-			if(animals[0].y == 0){
-				animals[0].y = 29;
+			if(animal.y == 0){
+				animal.y = 29;
 			}else{
-				animals[0].y -= 1;
+				animal.y -= 1;
 			}
 			break;
 		case 2:
-			if(animals[0].x == 99){
-				animals[0].x = 0;
-			}else if(animals[0].y == 0){
-				animals[0].y = 29;
+			if(animal.x == 99){
+				animal.x = 0;
+			}else if(animal.y == 0){
+				animal.y = 29;
 			}else{
-				animals[0].x += 1;
-				animals[0].y -= 1;
+				animal.x += 1;
+				animal.y -= 1;
 			}
 			break;
 		case 3:
-			if(animals[0].x == 99){
-				animals[0].x = 0;
+			if(animal.x == 99){
+				animal.x = 0;
 			}else{
-				animals[0].x += 1;
+				animal.x += 1;
 			}
 			break;
 		case 4:
-			if(animals[0].x == 0){
-				animals[0].x = 99;
-			}else if(animals[0].y == 0){
-				animals[0].y = 29;
+			if(animal.x == 0){
+				animal.x = 99;
+			}else if(animal.y == 0){
+				animal.y = 29;
 			}else{
-				animals[0].x += 1;
-				animals[0].y += 1;
+				animal.x += 1;
+				animal.y += 1;
 			}
 			break;
 		case 5:
-			if(animals[0].y == 29){
-				animals[0].y = 0;
+			if(animal.y == 29){
+				animal.y = 0;
 			}else{
-				animals[0].y += 1;
+				animal.y += 1;
 			}
 			break;
 		case 6:
-			if(animals[0].x == 0){
-				animals[0].x = 99;
-			}else if(animals[0].y == 29){
-				animals[0].y = 0;
+			if(animal.x == 0){
+				animal.x = 99;
+			}else if(animal.y == 29){
+				animal.y = 0;
 			}else{
-				animals[0].x -= 1;
-				animals[0].y += 1;
+				animal.x -= 1;
+				animal.y += 1;
 			}
 			break;
 		case 7:
-			if(animals[0].x == 0){
-				animals[0].x = 99;
+			if(animal.x == 0){
+				animal.x = 99;
 			}else{
-				animals[0].x -= 1;
+				animal.x -= 1;
 			}
 			break;
 	}	
@@ -111,7 +111,7 @@ function skipDay(){
 
 function updateWorld(){
 	addPlants();
-	move(animals);
+	move(animal);
 }
 
 /* 世界の関数 */
@@ -129,7 +129,7 @@ function drawWorld(){
 				ary[y][x] = "*";
 			}
 
-			if(animals[0].x == x && animals[0].y == y){
+			if(animal.x == x && animal.y == y){
 				ary[y][x] = "M";
 			}
 
