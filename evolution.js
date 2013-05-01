@@ -33,74 +33,49 @@ function Animal(x, y, direction){
 function move(animal){
 	switch(animal.direction){
 		case 0:
-			if(animal.x == 0){
-				animal.x = 99;
-			}else if(animal[0].y == 0){
-				animal.y = 29;
-			}else{
-				animal.x -= 1;
-				animal.y -= 1;
-			}
+			animal.x += -1;
+			animal.y += -1;
 			break;
 		case 1:
-			if(animal.y == 0){
-				animal.y = 29;
-			}else{
-				animal.y -= 1;
-			}
+			animal.x += 0;
+			animal.y += -1; 
 			break;
 		case 2:
-			if(animal.x == 99){
-				animal.x = 0;
-			}else if(animal.y == 0){
-				animal.y = 29;
-			}else{
-				animal.x += 1;
-				animal.y -= 1;
-			}
+			animal.x += 1;
+			animal.y += -1;
 			break;
 		case 3:
-			if(animal.x == 99){
-				animal.x = 0;
-			}else{
-				animal.x += 1;
-			}
+			animal.x += 1;
+			animal.y += 0;
 			break;
 		case 4:
-			if(animal.x == 0){
-				animal.x = 99;
-			}else if(animal.y == 0){
-				animal.y = 29;
-			}else{
-				animal.x += 1;
-				animal.y += 1;
-			}
+			animal.x += 1;
+			animal.y += 1;
 			break;
 		case 5:
-			if(animal.y == 29){
-				animal.y = 0;
-			}else{
-				animal.y += 1;
-			}
+			animal.x += 0;
+			animal.y += 1;
 			break;
 		case 6:
-			if(animal.x == 0){
-				animal.x = 99;
-			}else if(animal.y == 29){
-				animal.y = 0;
-			}else{
-				animal.x -= 1;
-				animal.y += 1;
-			}
+			animal.x += -1;
+			animal.y += 1;
 			break;
 		case 7:
-			if(animal.x == 0){
-				animal.x = 99;
-			}else{
-				animal.x -= 1;
-			}
+			animal.x += -1;
+			animal.y += 1;
 			break;
-	}	
+	}
+	if(animal.x > 99){
+		animal.x = 0;
+	}else if(animal.x < 0){
+		animal.x = 99;
+	}
+	
+	if(animal.y > 29){
+		animal.y = 0;
+	}else if(animal.y < 0){
+		animal.y = 29
+	}
 }
 
 /* シミュレーションの関数 */
