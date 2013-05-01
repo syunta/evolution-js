@@ -1,3 +1,7 @@
+function createRnd(a){
+	return Math.floor(Math.random() * a)
+}
+
 var plants = new Array();
 /* グローバル変数plantsを初期化 */
 for(var y = 0; y < 30; y++){
@@ -9,13 +13,8 @@ for(var y = 0; y < 30; y++){
 
 /* 植物の関数 */
 function addPlants(){
-	var rndX = Math.floor(Math.random() * 100);
-	var rndY = Math.floor(Math.random() * 30);
-	plants[rndY][rndX] = true;
-	
-	rndX = Math.floor(Math.random() * 10);
-	rndY = Math.floor(Math.random() * 10);	
-	plants[rndY + 10][rndX + 45] = true;
+	plants[createRnd(30)][createRnd(100)] = true;
+	plants[createRnd(10) + 10][createRnd(10) + 45] = true;
 }
 
 var animals = new Array();
@@ -28,7 +27,6 @@ function createAnimals(x, y, direction){
 	this.y = y;
 	this.direction = direction;
 }
-
 function move(animals){
 	switch(animals[0].direction){
 		case 0:
