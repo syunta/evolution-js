@@ -54,6 +54,10 @@ function Animal(x, y, direction){
 }
 ////////////////////////////////
 
+eat(animal){
+	
+}
+
 function turn(animal){
 	var denominator = "";
 	
@@ -124,6 +128,7 @@ function updateWorld(){
 	addPlants();
 	turn(animal);
 	move(animal);
+	eat(animal);
 	test();/* テスト用 */
 }
 
