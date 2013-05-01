@@ -31,38 +31,34 @@ function Animal(x, y, direction){
 ////////////////////////////////
 
 function move(animal){
+	function animalMove(x,y){
+		animal.x += x;
+		animal.y += y;
+	}
 	switch(animal.direction){
 		case 0:
-			animal.x += -1;
-			animal.y += -1;
+			animalMove(-1,-1)
 			break;
 		case 1:
-			animal.x += 0;
-			animal.y += -1; 
+			animalMove(0,-1)
 			break;
 		case 2:
-			animal.x += 1;
-			animal.y += -1;
+			animalMove(+1,-1)
 			break;
 		case 3:
-			animal.x += 1;
-			animal.y += 0;
+			animalMove(+1,0)
 			break;
 		case 4:
-			animal.x += 1;
-			animal.y += 1;
+			animalMove(+1,+1)
 			break;
 		case 5:
-			animal.x += 0;
-			animal.y += 1;
+			animalMove(0,+1)
 			break;
 		case 6:
-			animal.x += -1;
-			animal.y += 1;
+			animalMove(-1,+1)
 			break;
 		case 7:
-			animal.x += -1;
-			animal.y += 1;
+			animalMove(-1,0)
 			break;
 	}
 	if(animal.x > 99){
