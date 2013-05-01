@@ -7,6 +7,10 @@ function test(){
 	
 	test += ":  direction:" + animal.direction.toString()
 	document.getElementById("test").innerText = test;
+	
+	var vitality = "";
+	vitality += animal.vitality;
+	document.getElementById("vitality").innerText = vitality;
 }
 
 function createRnd(a){
@@ -31,10 +35,10 @@ function addPlants(){
 /* 動物の関数 */
 var animals = new Array();
 /* グローバル変数animalsを初期化 */
-animal = new Animal(50, 15, createRnd(8));
+animal = new Animal(50, 15, createRnd(8), 200);
 
 //////// Animalクラス //////////
-function Animal(x, y, direction){
+function Animal(x, y, direction, vitality){
 	this.x = x;
 	this.y = y;
 	this.direction = direction;
@@ -51,6 +55,8 @@ function Animal(x, y, direction){
 /*	for(var i = 0; i < this.genom.length; i++){
 		this.genom[i] = (createRnd(10) + 1);
 	}*/
+	
+	this.vitality = vitality;
 }
 ////////////////////////////////
 
