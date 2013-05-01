@@ -65,6 +65,7 @@ function eat(animal){
 	var y = animal.y;
 	
 	if(plants[y][x] == true){
+		animal.vitality += 80;
 		plants[y][x] = false;
 	}
 }
