@@ -19,14 +19,17 @@ function addPlants(){
 
 var animals = new Array();
 /* グローバル変数animalsを初期化 */
-animals[0] = new createAnimals(50, 15, 3);
+animals[0] = new Animal(50, 15, 3);
 
+//////// Animalクラス //////////
 /* 動物の関数 */
-function createAnimals(x, y, direction){
+function Animal(x, y, direction){
 	this.x = x;
 	this.y = y;
 	this.direction = direction;
 }
+////////////////////////////////
+
 function move(animals){
 	switch(animals[0].direction){
 		case 0:
