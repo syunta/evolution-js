@@ -5,7 +5,7 @@ function test(){
 		test += " " + animal.genom[i].toString();
 	}
 	
-	test += ":  direction:" + animal.direction.toString()
+	test += ":  direction:" + animal.direction.toString();
 	document.getElementById("test").innerText = test;
 	
 	var vitality = "";
@@ -71,18 +71,25 @@ function eat(animal){
 }
 
 function turn(animal){
-	var denominator = "";
+	var denominator = 0;
 	
-	for(var i = 0; i < animal.genom.length; i++){
-		for(var j = 0; j < animal.genom[i]; j++){
-			denominator += i;
+	for(var i = 0; i < 8; i++){
+		denominator += animal.genom[i];
+	}
+	
+	var rndNum = createRnd(denominator) + 1;
+	var a = 0;
+	
+	for(var i = 0; i < 8; i++){
+		a += animal.genom[i];
+		if(rndNum <= a){
+			animal.direction = i;
+			break;
 		}
 	}
-	var rndDirection = denominator.charAt(createRnd(denominator.length));
-	animal.direction = parseInt(rndDirection);
 	
 	var turn = "";
-	turn += rndDirection + "  " + denominator.length + "  "+denominator;
+	turn += a.toString() + "  " + rndNum.toString() + "  " + denominator.toString();
 	document.getElementById("turn").innerText = turn;
 }
 
@@ -159,7 +166,7 @@ function drawWorld(){
 			if(plants[y][x] == true){
 				ary[y][x] = "*";
 			}
-
+			
 			if(animal.x == x && animal.y == y){
 				ary[y][x] = "M";
 			}
