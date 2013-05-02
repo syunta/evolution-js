@@ -8,17 +8,9 @@ function test(animal){
 		for(var i = 0; i < 8; i++){
 			test += " " + animals[cnt].genom[i].toString();
 		}
-		test += ":  direction:" + animals[cnt].direction.toString() + "\n";
+		test += ":  direction:" + animals[cnt].direction.toString() + " vitality:" +animals[cnt].vitality + "\n";
 		document.getElementById("test").innerText = test;
 	}
-		
-	var vitality = "";
-	vitality += animal.vitality;
-	document.getElementById("vitality").innerText = vitality;
-	
-	var animalsNum = "";
-	animalsNum = "animals:" + animals.length.toString();
-	document.getElementById("animalsNum").innerText = animalsNum;
 }
 
 function createRnd(a){
