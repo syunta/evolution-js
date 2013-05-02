@@ -60,21 +60,26 @@ function reproduce(animal){
 	if(animal.vitality >= 200){
 		animal.vitality = Math.floor(animal.vitality / 2);
 		
+		/* 突然変異 */
+		var genomNum = createRnd(8);
+		var genomMutated = new Array(8);
+		for(var i = 0; i < 8; i++){
+			genomMutated[i] = animal.genom[i];
+		}
+		
+		var mutation = animal.genom[genomNum];
+		mutation += (createRnd(3) - 1);
+		if(mutation > 10){
+			mutation = 10;
+		}
+		if(mutation < 1){
+			mutation = 1;
+		}
+		genomMutated[genomNum] = mutation;
+		
 		/* 新しい動物の誕生 */
 		animals[animals.length] = 
-		new Animal(animal.x, animal.y, createRnd(8), Math.floor(animal.vitality), animal.genom);
-		
-		/* 突然変異 */
-		/*var genomNum = createRnd(8);
-		var genomMutated = animal.genom[genomNum];
-		genomMutated += (createRnd(3) - 1);
-		if(genomMutated > 10){
-			genomMutated = 10;
-		}
-		if(genomMutated < 1){
-			genomMutated = 1;
-		}
-		animals[animals.length].genom[genomNum] = genomMutated;*/
+		new Animal(animal.x, animal.y, createRnd(8), animal.vitality, genomMutated);
 	}
 }
 
