@@ -11,6 +11,10 @@ function test(animal){
 	var vitality = "";
 	vitality += animal.vitality;
 	document.getElementById("vitality").innerText = vitality;
+	
+	var animals = "";
+	animals += animals.length;
+	document.getElementById("animals").innerText = animals;
 }
 
 function createRnd(a){
@@ -35,7 +39,7 @@ function addPlants(){
 /* 動物の関数 */
 var animals = new Array();
 /* グローバル変数animalsを初期化 */
-animals[0] = new Animal(50, 15, createRnd(8), 200);
+animals[0] = new Animal(50, 15, createRnd(8), 100);
 
 //////// Animalクラス //////////
 function Animal(x, y, direction, vitality){
@@ -44,14 +48,25 @@ function Animal(x, y, direction, vitality){
 	this.direction = direction;
 
 	this.genom = new Array(8);
-	this.genom = [1,10,1,1,1,1,1,1];
-/*	for(var i = 0; i < this.genom.length; i++){
+	for(var i = 0; i < this.genom.length; i++){
 		this.genom[i] = (createRnd(10) + 1);
-	}*/
+	}
 
 	this.vitality = vitality;
 }
 ////////////////////////////////
+
+function reproduce(animal){
+	if(animal.vitality >= 200){
+		animal.vitality = Math.floor(animal.vitality / 2);
+		animals[animals.length + 1] = new Animal(animal.x, animal.y, createRnd(8), Math.floor(animal.vitality / 2));
+		
+		var genomNum = createRnd(8);
+		var genomMutated = animal.genom[genomNum];
+		genomMutated += (createRnd[3] - 1);
+		animals[animals.length + 1].genom[genomNum] = genomMutated;
+	}
+}
 
 function die(animal,id){
 	animals.splice(id,1);
@@ -156,6 +171,9 @@ function updateWorld(){
 	}
 	for(cnt in animals){
 		eat(animals[cnt]);
+	}
+	for(cnt in animals){
+		reproduce(animals[cnt]);
 	}
 	addPlants();
 
