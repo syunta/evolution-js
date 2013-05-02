@@ -62,7 +62,7 @@ function reproduce(animal){
 		
 		/* 新しい動物の誕生 */
 		animals[animals.length] = 
-		new Animal(animal.x, animal.y, createRnd(8), Math.floor(animal.vitality / 2), animal.genom);
+		new Animal(animal.x, animal.y, createRnd(8), Math.floor(animal.vitality), animal.genom);
 		
 		/* 突然変異 */
 		/*var genomNum = createRnd(8);
