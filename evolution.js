@@ -13,7 +13,7 @@ function test(animal){
 	document.getElementById("vitality").innerText = vitality;
 	
 	var animalsNum = "";
-	animalsNum += animals.length.toString();
+	animalsNum = animals.length.toString();
 	document.getElementById("animalsNum").innerText = animalsNum;
 }
 
@@ -59,12 +59,12 @@ function Animal(x, y, direction, vitality){
 function reproduce(animal){
 	if(animal.vitality >= 200){
 		animal.vitality = Math.floor(animal.vitality / 2);
-		animals[animals.length + 1] = new Animal(animal.x, animal.y, createRnd(8), Math.floor(animal.vitality / 2));
+		animals[animals.length] = new Animal(animal.x, animal.y, createRnd(8), Math.floor(animal.vitality / 2));
 		
 		var genomNum = createRnd(8);
 		var genomMutated = animal.genom[genomNum];
 		genomMutated += (createRnd[3] - 1);
-		animals[animals.length + 1].genom[genomNum] = genomMutated;
+		animals[animals.length].genom[genomNum] = genomMutated;
 	}
 }
 
