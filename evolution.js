@@ -63,7 +63,7 @@ function reproduce(animal){
 		
 		var genomNum = createRnd(8);
 		var genomMutated = animal.genom[genomNum];
-		genomMutated += (createRnd[3] - 1);
+		genomMutated += (createRnd(3) - 1);
 		animals[animals.length].genom[genomNum] = genomMutated;
 	}
 }
