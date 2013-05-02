@@ -53,8 +53,8 @@ function Animal(x, y, direction, vitality){
 }
 ////////////////////////////////
 
-function die(animal){
-	
+function die(animal,id){
+	animals.splice(id,1);
 }
 
 function eat(animal){
@@ -143,25 +143,20 @@ function skipDay(){
 
 function updateWorld(){
 	var cnt = 0;
-	
 	for(cnt in animals){
 		if(animals[cnt].vitality == 0){
-			die(animals[cnt]);
+			die(animals[cnt],cnt);
 		}
 	}
-
 	for(cnt in animals){
 		turn(animals[cnt]);
 	}
-
 	for(cnt in animals){
 		move(animals[cnt]);
 	}
-	
 	for(cnt in animals){
 		eat(animals[cnt]);
 	}
-
 	addPlants();
 
 	test(animals[0]);/* テスト用 */
@@ -188,6 +183,7 @@ function drawWorld(){
 					ary[y][x] = "M";
 				}
 			}
+			
 			world += ary[y][x];
 		}
 		ary[y][100] = "\n";
