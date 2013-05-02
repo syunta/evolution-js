@@ -42,18 +42,22 @@ function addPlants(){
 
 /* 動物の関数 */
 var animals = new Array();
-/* グローバル変数animalsを初期化 */
-animals[0] = new Animal(50, 15, createRnd(8), 200);
+/* 最初の動物を生成 */
+var genomOrigin = new Array(8);
+for(var i = 0; i < 8; i++){
+	genomOrigin[i] = (createRnd(10)+1);
+}
+animals[0] = new Animal(50, 15, createRnd(8), 200, genomOrigin);
 
 //////// Animalクラス //////////
-function Animal(x, y, direction, vitality){
+function Animal(x, y, direction, vitality, genomData){
 	this.x = x;
 	this.y = y;
 	this.direction = direction;
 
 	this.genom = new Array(8);
 	for(var i = 0; i < this.genom.length; i++){
-		this.genom[i] = (createRnd(10) + 1);
+		this.genom[i] = (genomData[i]);
 	}
 
 	this.vitality = vitality;
@@ -63,10 +67,13 @@ function Animal(x, y, direction, vitality){
 function reproduce(animal){
 	if(animal.vitality >= 200){
 		animal.vitality = Math.floor(animal.vitality / 2);
-		animals[animals.length] = 
-		new Animal(animal.x, animal.y, createRnd(8), Math.floor(animal.vitality / 2));
 		
-		var genomNum = createRnd(8);
+		/* 新しい動物の誕生 */
+		animals[animals.length] = 
+		new Animal(animal.x, animal.y, createRnd(8), Math.floor(animal.vitality / 2), animal.genom);
+		
+		/* 突然変異 */
+		/*var genomNum = createRnd(8);
 		var genomMutated = animal.genom[genomNum];
 		genomMutated += (createRnd(3) - 1);
 		if(genomMutated > 10){
@@ -75,7 +82,7 @@ function reproduce(animal){
 		if(genomMutated < 1){
 			genomMutated = 1;
 		}
-		animals[animals.length].genom[genomNum] = genomMutated;
+		animals[animals.length].genom[genomNum] = genomMutated;*/
 	}
 }
 
