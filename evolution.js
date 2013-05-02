@@ -135,7 +135,7 @@ function move(animal){
 	}else if(animal.y < 0){
 		animal.y = 29
 	}
-	animal.vitality += -1;
+	animal.vitality -= 1;
 }
 
 /* シミュレーションの関数 */
