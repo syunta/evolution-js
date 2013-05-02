@@ -12,9 +12,9 @@ function test(animal){
 	vitality += animal.vitality;
 	document.getElementById("vitality").innerText = vitality;
 	
-	var animals = "";
-	animals += animals.length;
-	document.getElementById("animals").innerText = animals;
+	var animalsNum = "";
+	animalsNum += animals.length.toString();
+	document.getElementById("animalsNum").innerText = animalsNum;
 }
 
 function createRnd(a){
@@ -68,7 +68,7 @@ function reproduce(animal){
 	}
 }
 
-function die(animal,id){
+function die(id){
 	animals.splice(id,1);
 }
 
@@ -160,7 +160,7 @@ function updateWorld(){
 	var cnt = 0;
 	for(cnt in animals){
 		if(animals[cnt].vitality == 0){
-			die(animals[cnt],cnt);
+			die(cnt);
 		}
 	}
 	for(cnt in animals){
