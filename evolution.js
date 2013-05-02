@@ -163,8 +163,17 @@ function move(animal){
 
 /* シミュレーションの関数 */
 function skipDay(){
-	updateWorld();
-	drawWorld();
+	
+	var simulation = 1;
+	if(window.inputBox.value != ""){
+		simulation = window.inputBox.value;
+	}
+	
+	for(var i = 0; i < parseInt(simulation); i++){
+		updateWorld();
+		drawWorld();
+	}
+
 }
 
 function updateWorld(){
