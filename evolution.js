@@ -1,13 +1,13 @@
 /* テスト用 */
-function test(){
+function test(animal){
 	var test = "";
 	for(var i = 0; i < 8; i++){
 		test += " " + animal.genom[i].toString();
 	}
-	
+
 	test += ":  direction:" + animal.direction.toString();
 	document.getElementById("test").innerText = test;
-	
+
 	var vitality = "";
 	vitality += animal.vitality;
 	document.getElementById("vitality").innerText = vitality;
@@ -35,27 +35,20 @@ function addPlants(){
 /* 動物の関数 */
 var animals = new Array();
 /* グローバル変数animalsを初期化 */
-animal = new Animal(50, 15, createRnd(8), 200);
+animals[0] = new Animal(50, 15, createRnd(8), 200);
 
 //////// Animalクラス //////////
 function Animal(x, y, direction, vitality){
 	this.x = x;
 	this.y = y;
 	this.direction = direction;
-	
+
 	this.genom = new Array(8);
-	this.genom[0] = 1;
-	this.genom[1] = 10;
-	this.genom[2] = 1;
-	this.genom[3] = 1;
-	this.genom[4] = 1;
-	this.genom[5] = 1;
-	this.genom[6] = 1;
-	this.genom[7] = 1;
+	this.genom = [1,10,1,1,1,1,1,1];
 /*	for(var i = 0; i < this.genom.length; i++){
 		this.genom[i] = (createRnd(10) + 1);
 	}*/
-	
+
 	this.vitality = vitality;
 }
 ////////////////////////////////
@@ -63,7 +56,7 @@ function Animal(x, y, direction, vitality){
 function eat(animal){
 	var x = animal.x;
 	var y = animal.y;
-	
+
 	if(plants[y][x] == true){
 		animal.vitality += 80;
 		plants[y][x] = false;
@@ -72,14 +65,14 @@ function eat(animal){
 
 function turn(animal){
 	var denominator = 0;
-	
+
 	for(var i = 0; i < 8; i++){
 		denominator += animal.genom[i];
 	}
-	
+
 	var rndNum = createRnd(denominator) + 1;
 	var a = 0;
-	
+
 	for(var i = 0; i < 8; i++){
 		a += animal.genom[i];
 		if(rndNum <= a){
@@ -87,7 +80,7 @@ function turn(animal){
 			break;
 		}
 	}
-	
+
 	var turn = "";
 	turn += a.toString() + "  " + rndNum.toString() + "  " + denominator.toString();
 	document.getElementById("turn").innerText = turn;
@@ -129,7 +122,7 @@ function move(animal){
 	}else if(animal.x < 0){
 		animal.x = 99;
 	}
-	
+
 	if(animal.y > 29){
 		animal.y = 0;
 	}else if(animal.y < 0){
@@ -145,11 +138,23 @@ function skipDay(){
 }
 
 function updateWorld(){
-	turn(animal);
-	move(animal);
-	eat(animal);
+	var cnt = 0;
+
+	for(cnt in animals){
+		turn(animals[cnt]);
+	}
+
+	for(cnt in animals){
+		move(animals[cnt]);
+	}
+	
+	for(cnt in animals){
+		eat(animals[cnt]);
+	}
+
 	addPlants();
-	test();/* テスト用 */
+
+	test(animals[0]);/* テスト用 */
 }
 
 /* 世界の関数 */
@@ -167,10 +172,12 @@ function drawWorld(){
 				ary[y][x] = "*";
 			}
 			
-			if(animal.x == x && animal.y == y){
-				ary[y][x] = "M";
+			var cnt = 0;
+			for(cnt in animals){
+				if(animals[cnt].x == x && animals[cnt].y == y){
+					ary[y][x] = "M";
+				}
 			}
-
 			world += ary[y][x];
 		}
 		ary[y][100] = "\n";
