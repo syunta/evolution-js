@@ -1,14 +1,17 @@
 /* テスト用 */
 
 function test(animal){
+	
 	var test = "";
-	for(var i = 0; i < 8; i++){
-		test += " " + animal.genom[i].toString();
+	for(var cnt in animals){
+		test += "animals[" + cnt + "]:";
+		for(var i = 0; i < 8; i++){
+			test += " " + animals[cnt].genom[i].toString();
+		}
+		test += ":  direction:" + animals[cnt].direction.toString() + "\n";
+		document.getElementById("test").innerText = test;
 	}
-
-	test += ":  direction:" + animal.direction.toString();
-	document.getElementById("test").innerText = test;
-
+		
 	var vitality = "";
 	vitality += animal.vitality;
 	document.getElementById("vitality").innerText = vitality;
