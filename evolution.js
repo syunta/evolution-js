@@ -117,10 +117,6 @@ function turn(animal){
 			break;
 		}
 	}
-
-	var turn = "";
-	turn += a.toString() + "  " + rndNum.toString() + "  " + denominator.toString();
-	document.getElementById("turn").innerText = turn;
 }
 
 function move(animal){
