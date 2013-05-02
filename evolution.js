@@ -53,6 +53,10 @@ function Animal(x, y, direction, vitality){
 }
 ////////////////////////////////
 
+function die(animal){
+	
+}
+
 function eat(animal){
 	var x = animal.x;
 	var y = animal.y;
@@ -139,6 +143,12 @@ function skipDay(){
 
 function updateWorld(){
 	var cnt = 0;
+	
+	for(cnt in animals){
+		if(animals[cnt].vitality == 0){
+			die(animals[cnt]);
+		}
+	}
 
 	for(cnt in animals){
 		turn(animals[cnt]);
