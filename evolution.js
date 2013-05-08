@@ -182,6 +182,16 @@ function updateWorld(){
 	test(animals[0]);/* テスト用 */
 }
 
+var auto;
+function autoSimulation(){
+	if(document.getElementById("autoSimulation").checked == true){
+		auto = setInterval("skipDay()",1000);
+	}
+	if(document.getElementById("autoSimulation").checked == false){
+		clearInterval(auto);
+	}
+}
+
 /* 世界の関数 */
 function drawWorld(){
 
