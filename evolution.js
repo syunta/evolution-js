@@ -154,8 +154,8 @@ function skipDay(){
 	}
 	for(var i = 0; i < parseInt(simulation); i++){
 		updateWorld();
-		drawWorld();
 	}
+	drawWorld();
 }
 
 function updateWorld(){
