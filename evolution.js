@@ -178,8 +178,6 @@ function updateWorld(){
 		reproduce(animals[cnt]);
 	}
 	addPlants();
-
-	test(animals[0]);/* テスト用 */
 }
 
 var auto;
@@ -216,4 +214,6 @@ function drawWorld(){
 		world += ary[y][100];
 	}
 	document.getElementById("world").innerText = world;
+	
+	test(animals[0]);/* テスト用 */
 }
