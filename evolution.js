@@ -12,7 +12,7 @@ function test(animal){
 		document.getElementById("test").innerText = test;
 	}
 }
-
+/* 乱数生成 */
 function createRnd(a){
 	return Math.floor(Math.random() * a)
 }
@@ -69,12 +69,6 @@ function reproduce(animal){
 		
 		var mutation = animal.genom[genomNum];
 		mutation += (createRnd(3) - 1);
-		if(mutation > 10){
-			mutation = 10;
-		}
-		if(mutation < 1){
-			mutation = 1;
-		}
 		genomMutated[genomNum] = mutation;
 		
 		/* 新しい動物の誕生 */
