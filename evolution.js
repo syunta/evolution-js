@@ -66,7 +66,7 @@ function reproduce(animal){
 		
 		/* 新しい動物の誕生 */
 		animals[animals.length] = 
-		new Animal(animal.x, animal.y, createRnd(8), animal.vitality, genomMutated);
+		new Animal(animal.x, animal.y, animal.direction, animal.vitality, genomMutated);
 	}
 }
 
