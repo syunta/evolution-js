@@ -1,7 +1,5 @@
 /* テスト用 */
-
 function test(animal){
-	
 	var test = "";
 	for(var cnt in animals){
 		test += "animals[" + cnt + "]:";
@@ -12,6 +10,7 @@ function test(animal){
 		document.getElementById("test").innerText = test;
 	}
 }
+
 /* 乱数生成 */
 function createRnd(a){
 	return Math.floor(Math.random() * a)
@@ -46,12 +45,7 @@ function Animal(x, y, direction, vitality, genomData){
 	this.x = x;
 	this.y = y;
 	this.direction = direction;
-
-	this.genom = new Array(8);
-	for(var i = 0; i < this.genom.length; i++){
-		this.genom[i] = (genomData[i]);
-	}
-
+	this.genom = genomData;
 	this.vitality = vitality;
 }
 ////////////////////////////////
@@ -66,7 +60,6 @@ function reproduce(animal){
 		for(var i = 0; i < 8; i++){
 			genomMutated[i] = animal.genom[i];
 		}
-		
 		var mutation = animal.genom[genomNum];
 		mutation += (createRnd(3) - 1);
 		genomMutated[genomNum] = mutation;
@@ -97,10 +90,8 @@ function turn(animal){
 	for(var i = 0; i < 8; i++){
 		denominator += animal.genom[i];
 	}
-
 	var rndNum = createRnd(denominator) + 1;
 	var a = 0;
-
 	for(var i = 0; i < 8; i++){
 		a += animal.genom[i];
 		if(rndNum <= a){
@@ -146,7 +137,6 @@ function move(animal){
 	}else if(animal.x < 0){
 		animal.x = 99;
 	}
-
 	if(animal.y > 29){
 		animal.y = 0;
 	}else if(animal.y < 0){
@@ -162,12 +152,10 @@ function skipDay(){
 	if(window.inputBox.value != ""){
 		simulation = window.inputBox.value;
 	}
-	
 	for(var i = 0; i < parseInt(simulation); i++){
 		updateWorld();
 		drawWorld();
 	}
-
 }
 
 function updateWorld(){
@@ -199,23 +187,19 @@ function drawWorld(){
 
 	var world = "";
 	var ary = new Array();
-
 	for(var y = 0; y < 30; y++){
 		ary[y] = new Array();
 		for(var x = 0; x < 100; x++){
 			ary[y][x] = " ";
-
 			if(plants[y][x] == true){
 				ary[y][x] = "*";
 			}
-			
 			var cnt = 0;
 			for(cnt in animals){
 				if(animals[cnt].x == x && animals[cnt].y == y){
 					ary[y][x] = "M";
 				}
 			}
-			
 			world += ary[y][x];
 		}
 		ary[y][100] = "\n";
