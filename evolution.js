@@ -161,7 +161,7 @@ function skipDay(){
 function updateWorld(){
 	var cnt = 0;
 	for(cnt in animals){
-		if(animals[cnt].vitality == 0){
+		if(animals[cnt].vitality <= 0){
 			die(cnt);
 		}
 	}
